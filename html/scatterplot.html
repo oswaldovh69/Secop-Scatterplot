@@ -1,0 +1,109 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+	<title>Visualization</title>
+	<link rel="stylesheet" href="../css/table.css">
+	<link rel="stylesheet" href="../css/scatter.css" charset="utf-8">
+	
+	<!-- Main Styling -->
+	<link href="css/main.css" rel="stylesheet">
+
+	<!-- Bootstrap -->
+	<link href="css/bootstrap.css" rel="stylesheet">
+
+	<!-- Font Awesome Icons -->
+	<link href="css/font-awesome.min.css" rel="stylesheet">
+
+	<!-- Open Sans Font -->
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,500,600,700,900' rel='stylesheet' type='text/css'>	
+  </head>
+  <body>
+	<p class="lato">Contratos que infringen los principios de Economía y Eficiencia</p>
+	<div id="infoview">
+		Periodo
+		<select id="mySelectAno">
+			<option>2006-2010</option>
+			<option>2011</option>
+			<option>2012</option>
+			<option>2013</option>
+			<option>2014-215</option>
+		</select>
+		<button type="button" onclick="changeAno()">Visualizar</button>
+		<br>
+		<input type="button" name="xAxis" value="Exceso Costos" id="InPorcentajeExcesoCosto">
+		<input type="button" name="xAxis" value="Exceso Tiempo" id="InPorcentajeExcesoPlazo">
+		<br>
+		<table>
+		  <tr>
+			<th>Nombre Entidad</th>
+			<th>Detalle Objeto Contratar</th>
+			<th>Tipo Contrato</th>
+			<th>Municipios Ejecución</th>
+			<th>Consulta Proceso SECOP I</th>
+		  </tr>
+		  <tr>
+			<td>
+				<textarea readonly rows="3" cols="20" id="txtAreaNombreEntidad"></textarea>
+			</td>
+			<td><textarea readonly rows="3" cols="20" id="txtAreaDetalleObjetoContratar"></textarea></td>
+			<td>
+				<textarea readonly rows="3" cols="40" id="txtAreaDetalleTipoContrato"></textarea>
+			</td>
+			<td>
+				<textarea readonly rows="3" cols="20" id="txtAreaDetalleMunicipiosEjecucion"></textarea>
+			</td>
+			<td>
+				<a href="#" id="urlContrato" target="_blank">www.contratos.gov.co</a>
+			</td>
+		  </tr>
+		</table>
+	</div>
+    <div id="scatter">
+	<script>
+		var dataFile = 'Secop_2006-2010.csv';		
+		function changeAno() {
+
+			var selectedIndex = document.getElementById("mySelectAno").selectedIndex;
+			var y = document.getElementById("mySelectAno").options;
+			
+			switch (selectedIndex) {
+				case 0:
+					dataFile = 'Secop_2006-2010.csv';
+					refreshChart();
+					ChartScatterPlot();
+					break;
+				case 1:
+					dataFile = 'Secop_2011-2011.csv';
+					refreshChart();
+					ChartScatterPlot();
+					break;
+				case 2:
+					dataFile = 'Secop_2012-2012.csv';
+					refreshChart();
+					ChartScatterPlot();
+					break;
+				case 3:
+					dataFile = 'Secop_2013-2013.csv';
+					refreshChart();
+					ChartScatterPlot();
+					break;
+				case 4:
+					dataFile = 'Secop_2014-2015.csv';
+					refreshChart();
+					ChartScatterPlot();
+					break;
+			}
+		}
+	</script>
+	<!-- <script src="//d3js.org/d3.v3.min.js"></script> -->
+	<script src="../js/d3.v3.min.js"></script>
+	
+	<script src="../js/scatterplot/scatter.js" charset="utf-8"></script>
+
+	<!-- <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script> -->
+	<script src="../js/d3.tip.v0.6.3.js"></script> 
+	
+	<script src="../js/accounting.min.js"></script>
+	<script>document.getElementById('InPorcentajeExcesoCosto').style.visibility = 'hidden';</script>
+  </body>
+</html>
