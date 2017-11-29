@@ -231,6 +231,17 @@ p.views {
 	color: #343434;
 }
 
+p.bold {
+	color: #DC143C;
+	font-weight: bold;
+}
+
+p.bold2 {
+	color: #4682B4;
+	font-weight: bold;
+	font-size: 18px;
+}
+
 .video p {
 	margin: 0;
 	padding: 0;
